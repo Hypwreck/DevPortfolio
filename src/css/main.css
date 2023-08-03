@@ -1,0 +1,239 @@
+/* CSS File */
+/* Our Main Body */
+body{
+  z-index: 1;
+background-color: rgb(175, 175, 175);
+color: #fff;
+ transition: background 0.2s linear;
+}
+/* BlurBox */
+.blurbox{
+  z-index: 2;
+  backdrop-filter: blur(35px);
+  position: absolute;
+transform: translate(-50%, -50%);
+top: 50%;
+left: 50%;
+height: 60%;
+width: 70%;
+  padding: 100px 100px;
+  border-radius: 10px;
+  background-color: rgba(140, 0, 255, 0.13);
+}
+.block{
+/* Three ways to put animation Each have Different Meanings, webkit and moz is for supported Browsers, Here,
+
+-webkit for Chrome(blink,webkit), Safari(webkit) and Opera(blink); 
+-moz for Firefox(gecko), 
+-o for Opera(presto), 
+-ms for Internet Explorer(Trident).  
+*/
+-webkit-animation: glowing 1s ease-in-out infinite alternate;
+-moz-animation: glowing 1s ease-in-out infinite alternate;
+animation: glowing 1s ease-in-out infinite alternate; 
+z-index: 1;
+position: absolute;
+transform:translate(-50%, -50%);
+-webkit-transform: rotate(45deg);
+background-color: fff;
+top: 40%;
+left: 45%;
+border-radius:50%;
+padding: 80px 80px;
+}
+
+/* Icons */
+ul {
+  z-index: 3;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ul li {
+  list-style: none;
+  margin: 0 10px;
+}
+
+ul li a {
+  position: relative; 
+  display: block;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 63px;
+  background: rgba(87, 87, 87, 0.781);
+  border-radius: 40%;
+  font-size: 30px;
+  color: #929292;
+  transition: .5s;
+}
+
+ul li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #f93dff;
+  transition: .5s;
+  transform: scale(.9);
+  z-index: -1;
+}
+
+ul li a:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #f93dff;
+}
+
+ul li a:hover {
+  color: #f93dff;
+  box-shadow: 0 0 5px #f93dff;
+  text-shadow: 0 0 5px #f93dff;
+}
+
+/* Dark Mode Switch */
+.toggle-switch {
+  transition: 200ms;
+  position: absolute;
+  z-index: 3;
+  top: 8%;
+  left: 82%;
+  width: 100px;
+  height: 50px;
+  --light: #d8dbe0;
+  --dark: #28292c;
+  --link: rgb(27, 129, 112);
+  --link-hover: rgb(24, 94, 82);
+}
+
+.switch-label {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  background-color: var(--dark);
+  border-radius: 25px;
+  cursor: pointer;
+  border: 3px solid var(--dark);
+}
+
+.checkbox {
+  position: absolute;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider {
+  background-color: var(--light);
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
+  box-shadow: inset 12px -4px 0px 0px var(--light);
+  background-color: var(--dark);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider::before {
+  -webkit-transform: translateX(50px);
+  -ms-transform: translateX(50px);
+  transform: translateX(50px);
+  background-color: var(--dark);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.toggle-switch:hover{
+  scale: 1.1;
+}
+.dark-mode {
+  background-color: rgb(27, 27, 27);
+  color: white;
+}
+.dark-mode .cardline{
+  border: 2px solid rgb(241, 241, 241);
+}
+.dark-mode .cardline2{
+  border: 2px solid rgb(241, 241, 241);
+}
+
+/* If you want it Responsive On Mobile Devices 
+
+@media only screen and (max-width: 600px) {
+
+}
+@media only screen and (max-width: 425px){
+  
+ 
+}
+@media only screen and (max-width: 768px) {
+
+
+}
+@media only screen and (min-width: 768px) {
+  
+}
+*/
+
+/* Here an Example, Making It Responsive for a Desktop 1920x1080p Screen*/
+@media only screen and (min-width: 1920px) {
+ .block{
+  left: 46%;
+ }
+ .toggle-switch{
+  top: 2%;
+left: 93%;
+ }
+ #heading{
+  top: 30%;
+  font-size: larger;
+  left:45%;
+ }
+ #description{
+left: 20%;
+font-weight: 400 ;
+ }
+ .card{
+  left: 20%;
+  scale: 1;
+ margin-top:26%;
+ }
+ .card2{
+  margin-top:26%;
+  margin-left: 10%;
+ }
+ .cardline{
+  margin-left: 4%;
+ }
+ .cardline2{
+  margin-left: 2.5%;
+ }
+ .card3{ 
+  margin-left: 11.75%;
+  margin-top:26%;
+}
+ .card:hover{
+  scale: 1.2;
+ }
+}
